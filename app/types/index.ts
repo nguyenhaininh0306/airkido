@@ -1,4 +1,6 @@
-import { User } from '@prisma/client'
+import { Listing, User } from '@prisma/client'
+
+export type SafeListings = Omit<Listing, 'created'> & { createdAt: string }
 
 export type SafeUser = Omit<User, 'createAt' | 'updateAt' | 'emailVerified'> & {
   createAt: string
